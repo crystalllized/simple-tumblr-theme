@@ -1,0 +1,436 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+
+<title>{Title}</title>
+<link rel="shortcut icon" href="{Favicon}">
+<link rel="alternate" type="application/rss+xml" href="{RSS}">
+{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+<link href='http://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+<!-- Theme built by Rachel Viniar, emeraldsilver.tumblr.com --->
+
+<meta name="color:Background" content=""/>
+<meta name="color:Title" content=""/>
+<meta name="color:Blockquote" content=""/>
+<meta name="color:Text" content=""/>
+<meta name="color:Border" content=""/>
+<meta name="color:Link" content=""/>
+<meta name="color:Social Media Background Color" content=""/>
+<meta name="text:Link URL" content=""/>
+<meta name="text:Link Text" content=""/>
+<meta name="if:Enable Social Media" content="0"/>
+<meta name="if:Black Social Media Icons" content="0"/>
+
+<!-- Social Media Icons by Dan Leech simpleicons.org --->
+
+<meta name="text:Facebook URL" content=""/>
+<meta name="text:Foursquare URL" content="" />
+<meta name="text:GitHub Name" content="" />
+<meta name="text:LinkedIn URL" content="" />
+<meta name="text:Reddit Name" content="" />
+<meta name="text:Steam Account Name" content=""/>
+<meta name="text:Twitter Name" content="" />
+<meta name="text:YouTube Name" content=""/>
+
+<style type="text/css">
+
+body {
+  background: {color:Background};
+	font-family: "Open Sans";
+	font-size: 12px;
+	color: {color:Text};
+}
+
+blockquote {
+	padding-left:5px;
+	margin: 7px;
+	border-left:3px solid;
+	color: {color:Blockquote};
+}
+
+a {
+	text-decoration: none;
+	color: {color:Link};
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#sidebar {
+	position: fixed;
+	margin-left:150px;
+	margin-top: 140px;
+	width: 220px;
+	padding: 10px;
+	border: 1px solid {color:Border};
+}
+
+#sidebar img {
+	margin-left: auto;
+	margin-right: auto;
+	display:block;
+}
+
+#description {
+	position: relative;
+	margin: 0px;
+	padding: 10px;
+	width: 200px;
+	text-align: center;
+	text-transform: lowercase;
+}
+
+#pagination {
+	position: relative;
+	padding: 2px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-top: 1px solid {color:Border};
+	border-bottom: 1px solid {color:Border};
+}
+
+#pagination a {
+	display: inline-block;
+	padding: 3px 6px 3px 6px;
+	margin: 4px;
+	text-align: center;
+}
+
+#pagination span {
+	display: inline-block;
+	padding: 3px 0px 3px 0px;
+	margin: 4px 0px;
+}
+
+#title {
+	z-index: 99999;
+	position: fixed;
+	margin-top: 110px;
+	margin-left: 150px;
+	font-size: 18px;
+	width: 240px;
+	text-align: center;
+	color: {color:Title};
+}
+
+#socialmedia {
+	position: relative;
+	padding: 2px;
+	padding-top: 7px;
+	margin-top: 10px;
+	border-top: 1px solid {color:Border};
+	width: 200px;
+}
+
+#socialmedia img {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+}
+
+.socialbuttons {
+	margin: 5px 2px;
+	display: inline-block;
+	height: 32px;
+	position: relative;
+	width: 32px;
+	-khtml-border-radius: 16px;
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+	border-radius: 16px;
+	background-color: {color:Social Media Background Color};
+}
+	
+
+#container {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 520px;
+	width: 500px;
+}
+
+.entry {
+	float:left;
+	position: relative;
+	width:500px;
+	padding: 10px;
+	margin-bottom:20px;
+	border: 1px solid {color:Border};
+}
+
+img {
+	max-width: 100%;
+}
+
+h1 { 
+	text-align: center;
+	font-size: 15px;
+	color: {color:Title};
+}
+
+#portrait img {
+	float: left;
+	margin-right: 10px;
+}
+
+
+#permalink {
+	border-top: 1px solid {color:Border};
+	position: relative;
+	margin-top: 5px;
+	padding-top: 5px;
+}
+
+ol.notes{
+    list-style-type:none;
+    padding:10px;
+    margin: 0;
+}
+
+ol.notes img.avatar {
+    margin-right: 10px;
+    width:16px;
+    height:16px;
+    vertical-align: -5px;
+    padding:1px;
+}
+
+ol.notes blockquote {
+    margin-left: 25px;
+}
+
+.alignleft {
+	float:left;
+}
+
+.alignright {
+	float:right;
+}
+	
+.tags {
+	text-align: center;
+	padding: 3px 10px;
+}
+
+.tags a {
+	padding: 0px 3px;
+}
+
+</style>
+
+</head>
+
+<body>
+<div id="title">{Title}
+</div>
+
+<div id="sidebar">
+<img src="{PortraitURL-128}">
+	<div id="description">
+		{Description}
+		<div id="pagination">
+		<span>&thinsp;</span>
+		{block:Pagination}
+			{block:PreviousPage}<a href="{PreviousPage}">Previous</a>{/block:PreviousPage} {CurrentPage}/{TotalPages} {block:NextPage}<a href="{NextPage}">Next{/block:NextPage}
+		{/block:Pagination}
+		{block:PermalinkPagination}
+			{block:PreviousPost}<a href="{PreviousPost}">Previous Post</a>{/block:PreviousPost} {block:NextPost}<a href="{NextPost}">Next Post</a>{/block:NextPost}
+		{/block:PermalinkPagination}
+		{block:DayPage}
+	    		{block:DayPagination}
+		        	{block:PreviousDayPage}<a href="{PreviousDayPage}">Previous Day</a>{/block:PreviousDayPage} {block:NextDayPage}<a href="{NextDayPage}">Next Day</a>{/block:NextDayPage}
+		    {/block:DayPagination}
+		{/block:DayPage}
+		</div>
+		<a href="/">Home</a><br>
+		<a href="/archive">Archive</a><br><a href="/random">Random</a><br>
+		{block:AskEnabled}<a href="/ask">{AskLabel}{/block:AskEnabled}<br>
+		{block:HasPages}{block:Pages}<a href="{URL}">{Label}</a><br>{/block:Pages}{/block:HasPages}
+		{block:ifLinkURL}<a href="{text:Link URL}">{text:Link Text}</a>{/block:ifLinkURL}
+		{block:ifEnableSocialMedia}
+		<div id="socialmedia">
+			{block:ifFacebookURL}
+			<a href="{text:Facebook URL}" target="_blank" class="socialbuttons">
+				{block:ifBlackSocialMediaIcons}
+				  <img src="http://static.tumblr.com/swxzuke/G8Dn5mkj0/facebook-64-black.png">
+				{/block:ifBlackSocialMediaIcons}
+				{block:ifNotBlackSocialMediaIcons}
+				  <img src="http://static.tumblr.com/swxzuke/iRXn5mkiz/facebook-64.png">
+				{/block:ifNotBlackSocialMediaIcons}
+			</a>
+			{/block:ifFacebookURL}
+			{block:ifFoursquareURL}
+			<a href="{text:Foursquare URL}" target="_blank" class="socialbuttons">
+				{block:ifBlackSocialMediaIcons}
+				  <img src="http://static.tumblr.com/swxzuke/1rkn5mkj1/foursquare-64-black.png">
+				{/block:ifBlackSocialMediaIcons}
+				{block:ifNotBlackSocialMediaIcons}
+				  <img src="http://static.tumblr.com/swxzuke/Gb2n5mkj0/foursquare-64.png">
+				{/block:ifNotBlackSocialMediaIcons}
+			</a>
+			{/block:ifFoursquareURL}
+			{block:ifGitHubName}
+			<a href="http://github.com/{text:GitHub Name}" target="_blank" class="socialbuttons">
+				{block:ifBlackSocialMediaIcons}
+			  	<img src="http://static.tumblr.com/swxzuke/OIKn5mkj1/github-64-black.png">
+				{/block:ifBlackSocialMediaIcons}
+				{block:ifNotBlackSocialMediaIcons}
+			  	<img src="http://static.tumblr.com/swxzuke/V3Jn5mkj1/github-64.png">
+				{/block:ifNotBlackSocialMediaIcons}
+			</a>
+			{/block:ifGitHubName}
+			{block:ifLinkedInURL}
+			<a href="{text:LinkedIn URL}" target="_blank" class="socialbuttons">
+				{block:ifBlackSocialMediaIcons}
+		  		<img src="http://static.tumblr.com/swxzuke/zGCn5mkj2/linkedin-64-black.png">
+				{/block:ifBlackSocialMediaIcons}
+				{block:ifNotBlackSocialMediaIcons}
+		  		<img src="http://static.tumblr.com/swxzuke/9x4n5mkj2/linkedin-64.png">
+				{/block:ifNotBlackSocialMediaIcons}
+			</a>
+			{/block:ifLinkedInURL}
+			{block:ifRedditName}
+			<a href="http://reddit.com/user/{text:Reddit Name}/" target="_blank" class="socialbuttons">
+				{block:ifBlackSocialMediaIcons}
+			  	<img src="http://static.tumblr.com/swxzuke/vj0n5mkj3/reddit-64-black.png">
+				{/block:ifBlackSocialMediaIcons}
+				{block:ifNotBlackSocialMediaIcons}
+				  <img src="http://static.tumblr.com/swxzuke/tlmn5mkj2/reddit-64.png">
+				{/block:ifNotBlackSocialMediaIcons}
+			</a>
+			{/block:ifRedditName}
+			{block:ifSteamAccountName}
+			<a href="http://steamcommunity.com/id/{text:Steam Account Name}" target="_blank" class="socialbuttons">
+				{block:ifBlackSocialMediaIcons}
+			  	<img src="http://static.tumblr.com/swxzuke/WgNn5mkix/steam-64-black.png">
+				{/block:ifBlackSocialMediaIcons}
+				{block:ifNotBlackSocialMediaIcons}
+				  <img src="http://static.tumblr.com/swxzuke/jUHn5mkj3/steam-64.png">
+				{/block:ifNotBlackSocialMediaIcons}
+			</a>
+			{/block:ifSteamAccountName}
+			{block:ifTwitterName}
+			<a href="http://twitter.com/{text:Twitter Name}" target="_blank" class="socialbuttons">
+				{block:ifBlackSocialMediaIcons}
+		  		<img src="http://static.tumblr.com/swxzuke/8c0n5mkiy/twitter-64-black.png">
+				{/block:ifBlackSocialMediaIcons}
+				{block:ifNotBlackSocialMediaIcons}
+			  	<img src="http://static.tumblr.com/swxzuke/mvGn5mkiy/twitter-64.png">
+				{/block:ifNotBlackSocialMediaIcons}
+			</a>
+			{/block:ifTwitterName}
+			{block:ifYouTubeName}
+			<a href="http://www.youtube.com/user/{text:YouTube Name}" target="_blank" class="socialbuttons">
+				{block:ifBlackSocialMediaIcons}
+				  <img src="http://static.tumblr.com/swxzuke/Pw7n5mkiz/youtube-64-black.png">
+				{/block:ifBlackSocialMediaIcons}
+				{block:ifNotBlackSocialMediaIcons}
+  				<img src="http://static.tumblr.com/swxzuke/i8Jn5mkiz/youtube-64.png">
+				{/block:ifNotBlackSocialMediaIcons}
+			</a>
+			{/block:ifYouTubeName}
+		</div> <!-- /div socialmedia --->
+		{/block:ifEnableSocialMedia}
+	</div> <!-- /div description --->
+</div> <!-- /div sidebar --->
+
+<div id="container">
+{block:Posts}
+	<div class="entry">
+		{block:Text}
+			<h1>{block:Title}{Title}{/block:Title}</h1>
+			{Body}
+		{/block:Text}
+
+		{block:Photo}
+			{LinkOpenTag}<img src="{PhotoURL-500}">{LinkCloseTag}
+			{block:Caption}{Caption}{/block:Caption}
+		{/block:Photo}
+
+		{block:Photoset}
+			{Photoset-500}
+			{block:Caption}{Caption}{/block:Caption}
+		{/block:Photoset}
+		
+		{block:Panorama}
+      {LinkOpenTag}<img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />{LinkCloseTag}
+      {block:Caption}{Caption}{/block:Caption}
+    {/block:Panorama}
+
+		{block:Quote}
+			<span style="font-size:15px;">{Quote}</span>
+			{block:Source}<p><span style="padding-left:20px;">—{Source}</span></p>{/block:Source}
+		{/block:Quote}
+
+		{block:Link}
+			<h1><a href="{URL}" {Target}>{Name}</a></h1>
+			{block:Description}{Description}{/block:Description}
+		{/block:Link}
+
+		{block:Chat}
+			{block:Title}<h1>{Title}</h1>{/block:Title}
+			{block:Lines}
+			{block:Label}<b>{Label}</b>{/block:Label} {Line}<br>
+			{/block:Lines}
+		{/block:Chat}
+
+		{block:Audio}
+			{block:AudioEmbed}{AudioEmbed-500}{/block:AudioEmbed}
+			{block:Caption}{Caption}{/block:Caption}
+		{/block:Audio}
+
+		{block:Video}
+			{Video-500}
+			{block:Caption}{Caption}{/block:Caption}
+		{/block:Video}
+
+		{block:Answer}
+			<div id="portrait"><img src="{AskerPortraitURL-40}"></div>{Asker}:<br>"{Question}"<p>{Replies}</p>
+		{/block:Answer}
+		
+		{block:ContentSource}
+      <!-- {SourceURL}{block:SourceLogo}<img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+      {/block:SourceLogo}
+      {block:NoSourceLogo}{SourceLink}{/block:NoSourceLogo} -->
+    {/block:ContentSource}
+		
+
+		<div id="permalink">
+			<div class="alignleft">
+				{block:Date}{DayofWeek}, {Month} {DayofMonth}{DayofMonthSuffix}, {Year} at {12Hour}:{Minutes} {CapitalAmPm}{/block:Date}
+			</div>
+	    <div class="alignright">
+        <a href="{Permalink}">{NoteCountWithLabel}</a> - <a href="{ReblogURL}" target="_blank">Reblog</a>
+	    </div>
+			<div class="tags">
+				{block:HasTags}<br>{block:Tags} #<a href="{TagURL}">{Tag}</a>{/block:Tags}{/block:HasTags}&thinsp;
+			</div>
+			{block:RebloggedFrom}
+				<div class="alignleft">
+					via <a href="{ReblogParentURL}"title="{ReblogParentTitle}">{ReblogParentName}</a>
+				</div>
+				<div class="alignright">
+					source: <a href="{ReblogRootURL}"title="{ReblogRoottitle}">{ReblogRootName}</a>
+				</div>
+			{/block:RebloggedFrom}
+		</div> <!-- /div permalink --->
+	
+		{block:PostNotes}
+        <br><div id="permalink">
+		          {PostNotes}
+		    </div>
+		{/block:PostNotes}
+		
+	</div> <!-- /div entry --->
+
+{/block:Posts}
+
+</div><!-- /div container --->
+
+</body>
+
+</html>
