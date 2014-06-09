@@ -173,6 +173,14 @@ h1 {
 	color: {color:Title};
 }
 
+h2 {
+	text-align: center;
+	font-size: 15px;
+	color: {color:Background};
+	background-color: {color:Link};
+	padding: 5px;
+}
+
 #portrait img {
 	float: left;
 	margin-right: 10px;
@@ -374,7 +382,7 @@ ol.notes blockquote {
 		{/block:Quote}
 
 		{block:Link}
-			<h1><a href="{URL}" {Target}>{Name}</a></h1>
+			<h2><a href="{URL}" {Target} style="color:{color:Background}">{Name}</a></h2>
 			{block:Description}{Description}{/block:Description}
 		{/block:Link}
 
